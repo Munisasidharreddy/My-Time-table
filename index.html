@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2459a6">
+  <title>My Weekly Timetable</title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 { color: #173b70; }
+    .days {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    button {
+      padding: 12px 18px;
+      border: none;
+      border-radius: 8px;
+      background: #2459a6;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover { background: #173b70; }
+    #schedule {
+      background: white;
+      max-width: 600px;
+      margin: 25px auto;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: left;
+      box-shadow: 0 2px 8px #ccc;
+    }
+    #schedule h2 { text-align: center; color: #2459a6; }
+    li { margin: 12px 0; }
+  </style>
+</head>
+<body>
+
+  <h1>My B.Tech + UPSC Timetable</h1>
+  <p>Select a day to view your timetable</p>
+
+  <div class="days">
+    <button onclick="showDay('Monday')">Monday</button>
+    <button onclick="showDay('Tuesday')">Tuesday</button>
+    <button onclick="showDay('Wednesday')">Wednesday</button>
+    <button onclick="showDay('Thursday')">Thursday</button>
+    <button onclick="showDay('Friday')">Friday</button>
+    <button onclick="showDay('Saturday')">Saturday</button>
+    <button onclick="showDay('Sunday')">Sunday</button>
+  </div>
+
+  <div id="schedule">
+    <h2>Welcome!</h2>
+    <p>Select any day above.</p>
+  </div>
+
+  <script>
+    const timetable = {
+      Monday: [
+        "5:00 AM – Wake up",
+        "5:30–6:30 AM – UPSC (History)",
+        "3:00–4:00 PM – College leisure (Maths)",
+        "6:30–7:30 PM – Maths",
+        "8:00–8:45 PM – Programming in C",
+        "8:45–9:00 PM – UPSC (Current affairs)"
+      ],
+      Tuesday: [
+        "5:30–6:30 AM – UPSC (Geography)",
+        "9:00-10:00 AM - UPSC (History)",
+        "10:00-11:00 AM - Programming in C",
+        "1:15–2:15 PM - E.F.A",
+        "6:30–7:30 PM – Critical Thinking",
+        "8:00–8:45 PM – Fortnier of AI",
+        "8:45–9:00 PM – Current affairs"
+      ],
+      Wednesday: [
+        "5:30–6:30 AM – UPSC (Politics)",
+        "10:00–11:00 AM – Current Affairs",        
+        "6:30–7:30 PM – Maths",
+        "8:00–8:45 PM – I.D.C",
+      ],
+      Thursday: [
+        "5:30–6:30 AM – UPSC (Economy)",
+        "6:30–7:30 PM – E.F.A",
+        "8:00–8:45 PM – Programming in C",
+        "8:45–9:00 PM – Current affairs"
+      ],
+      Friday: [
+        "5:30–6:30 AM – Environment",
+        "9:00-10:00 AM - Geography",
+        "2:00–3:00 PM – Programming in C",
+        "6:30–7:30 PM – Maths",
+        "8:00–8:45 PM – Critical Thinking",
+        "8:45–9:00 PM – Current affairs"
+      ],
+      Saturday: [
+        "5:30–6:30 AM – UPSC (History)",
+        "9:00–10:00 AM – Maths",
+        "10:15–11:15 AM – Programming in C",
+        "11:30 AM–12:30 PM – Frontiers of AI",
+        "2:00–3:00 PM – UPSC (Geography)",
+        "3:30–4:30 PM – E.F.A",
+        "4:45–5:30 PM – Critical Thinking",
+        "7:00–7:30 PM – Revision"
+      ],
+      Sunday: [
+        "Sunday – Weekly revision",
+        "Revise all six B.Tech subjects",
+        "Revise UPSC topics studied during the week",
+        "Take a weekly practice test"
+      ]
+    };
+
+    function showDay(day) {
+      let items = timetable[day].map(item => `<li>${item}</li>`).join("");
+      document.getElementById("schedule").innerHTML =
+        `<h2>${day} Timetable</h2><ul>${items}</ul>`;
+    }
+  </script>
+
+</body>
+</html>
